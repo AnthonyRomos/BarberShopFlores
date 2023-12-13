@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "761759972528",
+    "project_id": "barbershopflores-3443d",
+    "storage_bucket": "barbershopflores-3443d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761759972528:android:1c9d2058c8476d33a80f75",
+        "android_client_info": {
+          "package_name": "com.thomy.barbershopflores"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU-bNB7IDgWgQjWiRqkrhuduchaUXZkX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

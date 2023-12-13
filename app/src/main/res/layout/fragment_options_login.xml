@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primaryDark"
+    tools:context=".ui.authView.OptionsLoginFragment">
+
+
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/black_alpha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/blackopsone"
+            android:text="@string/barber_shop_flores"
+            android:textColor="@color/secondary"
+            android:textSize="26sp" />
+
+    </FrameLayout>
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imag_bar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@id/cv_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:srcCompat="@drawable/barber_ic"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="3dp" />
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="8dp"
+        android:backgroundTint="#0E0E0E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="64dp">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/secondary"
+            android:visibility="invisible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_init_email"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/blackopsone"
+            android:text="@string/ingresa_con_email"
+            android:textColor="@color/white"
+            app:icon="@drawable/ic_email"
+           app:iconTint="@color/white"
+            app:iconPadding="15dp"
+            app:iconSize="30dp"
+            app:strokeColor="@color/secondary"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_google"
+            android:backgroundTint="@color/googleColor"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/blackopsone"
+            android:text="@string/ingresa_con_google"
+            android:textColor="@color/white"
+            app:icon="@drawable/google_logo_icon"
+            app:iconTint="@color/white"
+            app:iconSize="24dp" />
+
+        <TextView
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:gravity="center"
+            android:text="@string/crear_nueva_cuenta"
+            android:textSize="16sp"
+            android:padding="8dp"
+            android:fontFamily="@font/handlee"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

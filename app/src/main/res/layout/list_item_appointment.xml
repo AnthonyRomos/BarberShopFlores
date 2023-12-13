@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    android:backgroundTint="@color/primaryDark"
+    app:cardElevation="8dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_poster_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="3dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textClient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary"
+            android:textSize="18sp"
+            android:fontFamily="@font/rowdies" />
+
+        <TextView
+            android:id="@+id/textBarber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/barber"
+            android:textColor="@color/secondary"
+            android:textSize="20sp"
+            android:fontFamily="@font/handlee"/>
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day"
+            android:textColor="@color/secondary"
+            android:textSize="20sp"
+            android:fontFamily="@font/handlee"/>
+
+        <TextView
+            android:id="@+id/textHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hour"
+            android:textColor="@color/secondary"
+            android:textSize="20sp"
+            android:fontFamily="@font/handlee"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
