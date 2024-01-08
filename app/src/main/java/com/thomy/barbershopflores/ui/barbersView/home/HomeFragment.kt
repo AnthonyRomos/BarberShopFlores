@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,18 +15,18 @@ import com.github.chrisbanes.photoview.PhotoView
 import com.thomy.barbershopflores.core.data.model.model.Barbers
 import com.thomy.barbershopflores.R
 import com.thomy.barbershopflores.databinding.FragmentHomeBinding
-import com.thomy.barbershopflores.ui.adapters.CortesAdapter
-import com.thomy.barbershopflores.ui.barbersView.appointment.AgendarCitasViewModel
+import com.thomy.barbershopflores.ui.adapters.HomeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+    val TAG: String = "HomeFragment"
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HomeViewModel by viewModels()
 
-    private lateinit var cortesAdapter: CortesAdapter
+    private lateinit var homeAdapter: HomeAdapter
     private val listBarbers: MutableList<Barbers> = mutableListOf()
 
 
@@ -48,7 +47,7 @@ class HomeFragment : Fragment() {
     }
 
    private fun observerNavigate() {
-        binding.btnRegisterCitas.setOnClickListener {
+        binding.cvBoxButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_agendarCitasActivity)
         }
     }
@@ -56,11 +55,11 @@ class HomeFragment : Fragment() {
     private fun observerListCortes() {
         val recyclerViewBarbers = binding.rcvCortes
         recyclerViewBarbers.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        cortesAdapter = context?.let {
-            CortesAdapter(it, listBarbers)
+        homeAdapter = context?.let {
+            HomeAdapter(it, listBarbers)
         }!!
         recyclerViewBarbers.setHasFixedSize(true)
-        recyclerViewBarbers.adapter = cortesAdapter
+        recyclerViewBarbers.adapter = homeAdapter
         val itemAnimator = DefaultItemAnimator()
         recyclerViewBarbers.itemAnimator = itemAnimator
     }

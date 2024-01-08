@@ -13,12 +13,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgendarCitasViewModel @Inject constructor(
+class ScheduleAppointmentsViewModel @Inject constructor(
     private val barberRepository: BarberRepository,
     ) : ViewModel() {
 
     private val _selectedBarber = MutableLiveData<String>()
-    val selectedBarber: LiveData<String> get() = _selectedBarber
 
     fun selectBarber(barberName: Barbers) {
         _selectedBarber.value = barberName.toString()

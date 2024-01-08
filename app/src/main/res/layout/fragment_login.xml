@@ -4,49 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDark"
+    android:background="@color/white"
     tools:context=".ui.authView.login.LoginFragment">
 
-    <include
-        android:id="@+id/viewHeader"
-        layout="@layout/view_header"
+
+    <LinearLayout
+        android:id="@+id/linearLayout_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/subTittle"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:padding="16dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/cv_box"
+        android:layout_height="300dp"
+        android:background="@drawable/top_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHeader"
-        app:shapeAppearanceOverlay="@style/circular"
-        app:srcCompat="@drawable/barber_ic"
-        app:strokeColor="@color/secondary"
-        app:strokeWidth="3dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical" />
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_box"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvTittle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#0E0E0E"
-        app:cardCornerRadius="26dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/blackopsone"
+        android:text="@string/barber_shop_flores"
+        android:textColor="@color/secondary"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="30dp"
+        app:cardCornerRadius="16dp"
+        app:strokeColor="@color/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTittle">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_imagen"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:padding="16dp"
+                android:textColor="@color/secondary"
+                android:text="LOGIN"
+                android:gravity="center"
+                android:fontFamily="@font/handlee"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilEmail"
@@ -57,7 +74,7 @@
                 app:errorIconDrawable="@null"
                 app:helperText="Requerido"
                 app:helperTextTextColor="@color/white"
-                app:startIconDrawable="@drawable/ic_email"
+                app:startIconDrawable="@drawable/ou_ic_email"
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -84,7 +101,7 @@
                 app:helperTextTextColor="@color/white"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/white"
-                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconDrawable="@drawable/ou_ic_lock"
                 app:startIconTint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -93,14 +110,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:imeOptions="actionDone"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
                 android:id="@+id/btn_layout"
                 android:layout_width="300dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp">
 
@@ -129,19 +146,51 @@
                 android:id="@+id/forgotPassLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/handlee"
                 android:gravity="center"
                 android:text="@string/recover_your_password"
-                android:textSize="16sp"
-                android:padding="8dp"
-                android:fontFamily="@font/handlee"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/subTittle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:padding="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:srcCompat="@drawable/barber_ic"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/tvTittleBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/blackopsone"
+        android:text="Tu Barberia"
+        android:textColor="@color/black_text"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

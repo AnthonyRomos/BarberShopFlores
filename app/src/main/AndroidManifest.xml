@@ -19,7 +19,7 @@
         android:theme="@style/Theme.BarberShopFlores"
         tools:targetApi="31">
         <activity
-            android:name=".ui.barbersView.appointment.AgendarCitasActivity"
+            android:name=".ui.barbersView.appointment.ScheduleAppointmentsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.thomy.barbershopflores.core.data.model.model.Barbers
 import com.thomy.barbershopflores.databinding.ItemCortesBinding
 
-class CortesAdapter(
+class HomeAdapter(
     private val context: Context,
     private val listServices: MutableList<Barbers>
 ):
-    RecyclerView.Adapter<CortesAdapter.CortesViewHolder>() {
+    RecyclerView.Adapter<HomeAdapter.CortesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CortesViewHolder {
         val itemCortes = ItemCortesBinding.inflate(LayoutInflater.from(context),parent,false)

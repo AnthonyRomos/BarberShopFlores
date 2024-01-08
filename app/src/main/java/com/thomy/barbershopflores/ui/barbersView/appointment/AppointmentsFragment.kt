@@ -1,5 +1,6 @@
 package com.thomy.barbershopflores.ui.barbersView.appointment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,20 +14,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.thomy.barbershopflores.core.data.model.model.Appointment
 import com.thomy.barbershopflores.core.data.model.utils.FireStoreCollection.APPOINTMENTS
-import com.thomy.barbershopflores.databinding.FragmentCitasBinding
-import com.thomy.barbershopflores.repository.barber.BarberRepository
+import com.thomy.barbershopflores.databinding.FragmentAppointmentsBinding
 import com.thomy.barbershopflores.ui.adapters.AppointmentsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class CitasFragment : Fragment() {
+class AppointmentsFragment : Fragment() {
 
-    val TAG: String = "CitasFragment"
-
-    @Inject
-    lateinit var barberRepository: BarberRepository
-    private var _binding: FragmentCitasBinding? = null
+    val TAG: String = "AppointmentsFragment"
+    private var _binding: FragmentAppointmentsBinding? = null
     private val binding get() = _binding!!
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
     val db: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -37,7 +33,7 @@ class CitasFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCitasBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentAppointmentsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -55,6 +51,7 @@ class CitasFragment : Fragment() {
         observer()
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun observer() {
         binding.btnConsult.setOnClickListener {
             val currentUser = auth.currentUser
@@ -75,14 +72,15 @@ class CitasFragment : Fragment() {
                                 val date = document.getString("data") ?: ""
                                 val hour = document.getString("hora") ?: ""
 
-                                    val appointment = Appointment(client, barber, date, hour)
-                                    appointmentsList.add(appointment)
-                                }
-                            if (appointmentsList.isEmpty()) {
-                                showToast("No tiene citas generadas")                            } else {
+                                val appointment = Appointment(client, barber, date, hour)
+                                appointmentsList.add(appointment)
+                                binding.btnConsult.visibility = View.GONE
                             }
+                            if (appointmentsList.isEmpty()) {
+                                showToast("No tiene citas generadas")
+                            } else
 
-                            appointmentsAdapter.submitList(appointmentsList)
+                                appointmentsAdapter.submitList(appointmentsList)
                         }
 
                         .addOnFailureListener {

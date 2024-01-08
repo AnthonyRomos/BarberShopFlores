@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.BarberShopFlores" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/black</item>
@@ -20,6 +20,9 @@
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/primaryDark</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/splash</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.BarberShopFlores</item>
     </style>
 
     <style name="FormTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -53,6 +56,7 @@
         <item name="android:gravity">center</item>
         <item name="backgroundTint">@color/white</item>
     </style>
+
 
 
 

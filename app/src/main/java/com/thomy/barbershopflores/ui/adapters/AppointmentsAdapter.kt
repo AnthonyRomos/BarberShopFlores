@@ -1,11 +1,11 @@
 package com.thomy.barbershopflores.ui.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.thomy.barbershopflores.R
 import com.thomy.barbershopflores.core.data.model.model.Appointment
 import com.thomy.barbershopflores.databinding.ListItemAppointmentBinding
 
@@ -26,10 +26,10 @@ class AppointmentsAdapter : ListAdapter<Appointment, AppointmentViewHolder>(Appo
 class AppointmentViewHolder(private val binding: ListItemAppointmentBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(appointment: Appointment) {
-        binding.textClient.text = "Cliente: ${appointment.client}"
-        binding.textBarber.text = "Barbero: ${appointment.barber}"
-        binding.textDate.text = "Fecha: ${appointment.date}"
-        binding.textHour.text = "Hora: ${appointment.hour}"
+        binding.textClient.text = binding.root.context.getString(R.string.client_label, appointment.client)
+        binding.textBarber.text = binding.root.context.getString(R.string.barber_label, appointment.barber)
+        binding.textDate.text = binding.root.context.getString(R.string.date_label, appointment.date)
+        binding.textHour.text = binding.root.context.getString(R.string.hour_label, appointment.hour)
     }
 }
 

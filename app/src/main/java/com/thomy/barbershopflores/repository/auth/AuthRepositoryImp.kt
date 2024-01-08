@@ -132,17 +132,14 @@ class AuthRepositoryImp @OptIn(DelicateCoroutinesApi::class) constructor(
             val firebaseUser = authResult.user
 
             if (firebaseUser != null) {
-                // Obtén la información adicional de Google
                 val googleUser = UserGoogle(
                     uid = firebaseUser.uid,
                     uName = firebaseUser.displayName ?: "",
                     imageUrl = firebaseUser.photoUrl.toString()
                 )
 
-                // Almacena la información de Google en Firestore
                 userDao.addUser(googleUser)
 
-                // Crea el modelo User combinando la información de Firebase y Google
                 val user = UserLoginGoogle(
                     uid = firebaseUser.uid,
                     displayName = firebaseUser.displayName ?: "",

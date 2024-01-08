@@ -78,4 +78,11 @@
     <string name="Estadodelacita">Estado de la cita</string>
     <string name="state_of_the_appointment">Estado de la cita</string>
     <string name="message_sucessfull">Cita creada exitosamente, revisa tu apartado de citas</string>
+    <string name="confirm">Aceptar</string>
+
+    <string name="client_label">Cliente: %s</string>
+    <string name="barber_label">Barbero: %s</string>
+    <string name="date_label">Fecha: %s</string>
+    <string name="hour_label">Hora: %s</string>
+
 </resources>

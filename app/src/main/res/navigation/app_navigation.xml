@@ -18,9 +18,9 @@
 
     <fragment
         android:id="@+id/citasFragment"
-        android:name="com.thomy.barbershopflores.ui.barbersView.appointment.CitasFragment"
+        android:name="com.thomy.barbershopflores.ui.barbersView.appointment.AppointmentsFragment"
         android:label="fragment_citas"
-        tools:layout="@layout/fragment_citas" >
+        tools:layout="@layout/fragment_appointments" >
         <action
             android:id="@+id/action_citasFragment_to_agendarCitasActivity"
             app:destination="@id/agendarCitasActivity" />
@@ -36,7 +36,7 @@
     </fragment>
     <activity
         android:id="@+id/agendarCitasActivity"
-        android:name="com.thomy.barbershopflores.ui.barbersView.appointment.AgendarCitasActivity"
+        android:name="com.thomy.barbershopflores.ui.barbersView.appointment.ScheduleAppointmentsActivity"
         android:label="AgendarCitasActivity" />
     <fragment
         android:id="@+id/loginFragment"

@@ -4,31 +4,26 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
 import com.thomy.barbershopflores.R
 import com.thomy.barbershopflores.core.data.model.model.Barbers
 import com.thomy.barbershopflores.core.data.model.utils.DialogUtils
-import com.thomy.barbershopflores.databinding.ActivityAgendarCitasBinding
-import com.thomy.barbershopflores.repository.barber.BarberRepository
+import com.thomy.barbershopflores.databinding.ActivityScheduleAppointmentsBinding
 import com.thomy.barbershopflores.ui.adapters.BarbersAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class AgendarCitasActivity : AppCompatActivity() {
+class ScheduleAppointmentsActivity : AppCompatActivity() {
 
 
-    @Inject
-    lateinit var barberRepository: BarberRepository
-    private lateinit var binding: ActivityAgendarCitasBinding
-    private val viewModel: AgendarCitasViewModel by viewModels()
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
+    val TAG: String = "ScheduleAppointmentsActivity"
+    private lateinit var binding: ActivityScheduleAppointmentsBinding
+    private val viewModel: ScheduleAppointmentsViewModel by viewModels()
     private lateinit var barbersAdapter: BarbersAdapter
     private val listBarbers: MutableList<Barbers> = mutableListOf()
     private val calendar: Calendar = Calendar.getInstance()
@@ -38,7 +33,7 @@ class AgendarCitasActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAgendarCitasBinding.inflate(layoutInflater)
+        binding = ActivityScheduleAppointmentsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setUpBarbersRecyclerView()
@@ -103,10 +98,10 @@ class AgendarCitasActivity : AppCompatActivity() {
     }
 
     private fun showSuccessDialog(message: String) {
-        AlertDialog.Builder(this)
-            .setTitle("Estado de tu cita")
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.Estadodelacita))
             .setMessage(message)
-            .setPositiveButton("Aceptar") { _, _ ->
+            .setPositiveButton(getString(R.string.confirm)) { _, _, ->
             }
             .setCancelable(false)
             .create()

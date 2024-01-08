@@ -5,14 +5,15 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDark"
+    android:background="@color/white"
     tools:context=".ui.barbersView.home.HomeFragment">
+
 
     <FrameLayout
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/black_alpha"
+        android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,20 +29,23 @@
 
     </FrameLayout>
 
+
     <TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/handlee"
         android:maxLines="1"
         android:text="@string/welcome"
-        android:fontFamily="@font/handlee"
         android:textAlignment="center"
-        android:textColor="@color/secondary"
+        android:textColor="@color/black_text"
+        android:textStyle="bold"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
 
     <TextView
         android:id="@+id/userTextView"
@@ -49,91 +53,138 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:text="@{viewModel.userProfileLiveData.email}"
-        tools:text="USUARIO"
         android:textAlignment="center"
-        android:textColor="@color/secondary"
+        android:textColor="@color/black_text"
         android:textSize="18sp"
+        android:fontFamily="@font/handlee"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/welcomeTextView" />
+        app:layout_constraintTop_toBottomOf="@id/welcomeTextView"
+        tools:text="USUARIO" />
 
-    <TextView
-        android:id="@+id/subTittle"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E8E1E1"
+        app:layout_constraintBottom_toTopOf="@+id/cv_box_button"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_box_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:longClickable="true"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv_box"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userTextView"
+        app:strokeWidth="4dp"
+        app:strokeColor="@color/black">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/subTittle"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="4dp"
+                app:srcCompat="@drawable/agenda_imag" />
+
+            <TextView
+                android:id="@+id/btnRegisterCitas"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/handlee"
+                android:gravity="center"
+                android:text="Generar Cita"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:strokeColor="@color/black" />
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/handlee"
-        android:gravity="center"
-        android:text="@string/barber_shop_subtittle"
-        android:textColor="@color/secondary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/rcvCortes"
+        android:layout_marginTop="300dp"
+        android:backgroundTint="@color/primaryDark"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/text_subTittle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.497" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvCortes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:src="@drawable/barber3"
+            app:shapeAppearanceOverlay="@style/circular"
+            app:strokeColor="@color/secondary"
+            app:strokeWidth="3dp" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/text_subTittle"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/black"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvTittleBottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rcvCortes">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:fontFamily="@font/handlee"
             android:gravity="center"
             android:text="@string/catalogo_de_cortes"
-            android:fontFamily="@font/handlee"
             android:textColor="@color/secondary"
             android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvCortes"
+    <TextView
+        android:id="@+id/tvTittleBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:src="@drawable/barber3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:shapeAppearanceOverlay="@style/circular"
-        app:strokeColor="@color/secondary"
-        app:strokeWidth="3dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnRegisterCitas"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:background="@color/white"
         android:fontFamily="@font/blackopsone"
-        android:text="@string/genera_tu_cita"
-        android:textColor="@color/secondary"
-        app:cornerRadius="30dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Tu Barberia"
+        android:textColor="@color/black_text"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rcvCortes"
-        app:strokeColor="@color/secondary" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

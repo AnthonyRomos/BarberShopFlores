@@ -4,117 +4,157 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/primaryDark"
+    android:background="@color/white"
     tools:context=".ui.authView.OptionsLoginFragment">
-
-
-    <FrameLayout
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/black_alpha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/blackopsone"
-            android:text="@string/barber_shop_flores"
-            android:textColor="@color/secondary"
-            android:textSize="26sp" />
-
-    </FrameLayout>
-
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imag_bar"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toTopOf="@id/cv_box"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/circular"
-        app:srcCompat="@drawable/barber_ic"
-        app:strokeColor="@color/secondary"
-        app:strokeWidth="3dp" />
-    
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_box"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="26dp"
-        app:cardElevation="8dp"
-        android:backgroundTint="#0E0E0E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
 
 
     <LinearLayout
+        android:id="@+id/linearLayout_1"
         android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/top_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/tvTittle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginBottom="80dp"
-        android:layout_marginTop="64dp">
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/blackopsone"
+        android:text="@string/barber_shop_flores"
+        android:textColor="@color/secondary"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="30dp"
+        app:cardCornerRadius="16dp"
+        app:strokeColor="@color/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTittle">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminateTint="@color/secondary"
-            android:visibility="invisible" />
+            android:layout_height="match_parent"
+            android:background="@drawable/background_imagen"
+            android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_init_email"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/blackopsone"
-            android:text="@string/ingresa_con_email"
-            android:textColor="@color/white"
-            app:icon="@drawable/ic_email"
-           app:iconTint="@color/white"
-            app:iconPadding="15dp"
-            app:iconSize="30dp"
-            app:strokeColor="@color/secondary"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="170dp"
+                android:padding="16dp"
+                android:textColor="@color/secondary"
+                android:text="MODOS DE INGRESO"
+                android:gravity="center"
+                android:fontFamily="@font/handlee"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_google"
-            android:backgroundTint="@color/googleColor"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/blackopsone"
-            android:text="@string/ingresa_con_google"
-            android:textColor="@color/white"
-            app:icon="@drawable/google_logo_icon"
-            app:iconTint="@color/white"
-            app:iconSize="24dp" />
 
-        <TextView
-            android:id="@+id/registerButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
-            android:gravity="center"
-            android:text="@string/crear_nueva_cuenta"
-            android:textSize="16sp"
-            android:padding="8dp"
-            android:fontFamily="@font/handlee"
-            android:textColor="@color/white" />
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_init_email"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/blackopsone"
+                android:text="@string/ingresa_con_email"
+                android:textColor="@color/white"
+                app:icon="@drawable/ic_email"
+                app:iconTint="@color/white"
+                app:iconPadding="15dp"
+                app:iconSize="30dp"
+                app:strokeColor="@color/secondary"/>
 
-    </androidx.cardview.widget.CardView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_google"
+                android:backgroundTint="@color/googleColor"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/blackopsone"
+                android:text="@string/ingresa_con_google"
+                android:textColor="@color/white"
+                app:icon="@drawable/google_logo_icon"
+                app:iconTint="@color/white"
+                app:iconSize="24dp" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/secondary"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:text="@string/crear_nueva_cuenta"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:fontFamily="@font/handlee"
+                android:textColor="@color/white" />
+
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/subTittle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:padding="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:srcCompat="@drawable/barber_ic"
+        app:strokeColor="@color/secondary"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/tvTittleBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/blackopsone"
+        android:text="Tu Barberia"
+        android:textColor="@color/black_text"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

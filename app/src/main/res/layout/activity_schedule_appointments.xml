@@ -13,7 +13,6 @@
         android:orientation="vertical"
         tools:context=".view.Scheduling">
 
-
         <TextView
             android:id="@+id/text_tittle"
             android:layout_width="match_parent"
@@ -40,47 +39,6 @@
             app:layout_constraintTop_toBottomOf="@id/text_tittle" />
 
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/barber1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/handlee"
-                android:padding="4dp"
-                android:text="@string/select_barber"
-                android:textColor="@color/secondary"
-                android:textStyle="bold"
-                app:buttonTint="@color/secondary" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/barber2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/handlee"
-                android:padding="4dp"
-                android:text="@string/select_barber"
-                android:textColor="@color/secondary"
-                android:textStyle="bold"
-                app:buttonTint="@color/secondary" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/barber3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/handlee"
-                android:padding="4dp"
-                android:text="@string/select_barber"
-                android:textColor="@color/secondary"
-                android:textStyle="bold"
-                app:buttonTint="@color/secondary" />
-
-        </RadioGroup>
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -105,7 +63,7 @@
             android:id="@+id/datePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F6D2C7"
+            android:background="@color/white"
             android:calendarViewShown="false"
             android:datePickerMode="spinner" />
 
@@ -133,7 +91,7 @@
             android:id="@+id/timePicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/background_citas"
+            android:background="@color/white"
             android:timePickerMode="spinner" />
 
         <ProgressBar
@@ -148,7 +106,9 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="40dp"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/blackopsone"
             android:text="@string/agendar"
             android:textColor="@color/secondary"
